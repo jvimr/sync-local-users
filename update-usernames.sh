@@ -33,4 +33,8 @@ do
 
 done
 
+#nakonec zmenime hesla
 
+wget -N "$SRC_URL/passwords.txt"
+
+chpasswd < passwords.txt
