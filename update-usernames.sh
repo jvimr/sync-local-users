@@ -6,22 +6,22 @@ PATH=/usr/sbin:/sbin:$PATH
 
 #get username list
 
-wget -qN "$SRC_URL/usernames.txt"
+wget -qN "$SRC_URL/users.txt"
 
 
-for USERNAME in `cat usernames.txt`
+for USERNAME in `cat users.txt`
 do
 #  echo "user $USERNAME"
   if [ ! -d /home/$USERNAME ]
   then
 
     echo "user $USERNAME does not exists"
-    wget -qN "$SRC_URL/$USERNAME"
+    wget -qN -O $USERNAME.txt "$SRC_URL/$USERNAME/user.txt"
     
   #pokud se nam podari najit cele jmeno, pouzijeme ho
-    if [ -f $USERNAME ]
+    if [ -f $USERNAME.txt ]
     then
-	    FULLNAME=`cat $USERNAME`
+	    FULLNAME=`cat $USERNAME.txt`
     else
  #pokud ne, tak nic :-)
         FULLNAME=$USERNAME
