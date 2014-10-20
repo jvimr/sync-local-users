@@ -33,6 +33,27 @@ do
     echo "user $USERNAME created $?"
   fi
 
+
+  if [ ! -d  /home/$USERNAME/Desktop ]
+  then
+	mkdir /home/$USERNAME/Desktop
+        chown $USERNAME:$USERNAME /home/$USERNAME/Desktop
+        cat << EOF > /home/$USERNAME/Desktop/Změna_hesla.desktop
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Type=Link
+Icon[en_US]=gnome-panel-launcher
+Name[en_US]=Změna hesla
+URL=http://estu.platformx.org/setup/pc_accounts/$USERNAME/chpw
+Comment[en_US]=Změna hesla pro přihlašování k tomuto počítači
+Name=Změna hesla
+Comment=Změna hesla pro přihlašování k tomuto počítači
+Icon=gnome-panel-launcher
+EOF
+
+  fi
+
 done
 
 #nakonec zmenime hesla
