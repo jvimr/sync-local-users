@@ -58,6 +58,12 @@ EOF
 
   fi
 
+  if [ ! -f /home/$USERNAME/.dmrc ]
+  then
+    echo "Desktop" > /home/$USERNAME/.dmrc
+    echo "Session=gnome-fallback" >> /home/$USERNAME/.dmrc
+  fi
+
 done
 
 #nakonec zmenime hesla
