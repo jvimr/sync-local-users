@@ -38,6 +38,10 @@ do
   then
 	mkdir /home/$USERNAME/Desktop
         chown $USERNAME:$USERNAME /home/$USERNAME/Desktop
+  fi
+
+  if [ ! -f /home/$USERNAME/Desktop/Změna_hesla.desktop ]
+  then
         cat << EOF > /home/$USERNAME/Desktop/Změna_hesla.desktop
 #!/usr/bin/env xdg-open
 [Desktop Entry]
